@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class Fixable : MonoBehaviour {
     public Health source;
-    private void Awake() {
-        source = GetComponent<Health>();
-    }
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {

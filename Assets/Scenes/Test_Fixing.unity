@@ -220,7 +220,7 @@ PrefabInstance:
     - target: {fileID: 924742757081072481, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: spriteR
       value: 
-      objectReference: {fileID: 1389743371}
+      objectReference: {fileID: 0}
     - target: {fileID: 5089692222707800737, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: m_Name
       value: Hull Breach
@@ -231,23 +231,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089692222707800751, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 5.9264
       objectReference: {fileID: 0}
     - target: {fileID: 5089692222707800751, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 5.9264
       objectReference: {fileID: 0}
     - target: {fileID: 5089692222707800751, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 5.9264
       objectReference: {fileID: 0}
     - target: {fileID: 5089692222707800751, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.77
       objectReference: {fileID: 0}
     - target: {fileID: 5089692222707800751, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 5089692222707800751, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6402352555083852371, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 1086128035}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
 --- !u!114 &1086128035 stripped
@@ -294,11 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb308c63da28d9a44bfac98d13fd7357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &1389743371 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 136640225011437406, guid: 6bf6632c93e7a3a4a8e076c76fd9a8b3, type: 3}
-  m_PrefabInstance: {fileID: 1086128034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2111719123
 PrefabInstance:
   m_ObjectHideFlags: 0
