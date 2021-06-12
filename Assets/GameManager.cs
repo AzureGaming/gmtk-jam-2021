@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
     public delegate void PlayerDeath();
     public static PlayerDeath OnPlayerDeath;
 
-    int objectsToFix = 6;
+    int objectsToFix;
     int numberOfFixedObjects;
     bool isGameOver = false;
 
@@ -27,7 +27,15 @@ public class GameManager : MonoBehaviour {
     }
 
     void SetupGame() {
+        Health[] objs = FindObjectsOfType<Health>();
+
         numberOfFixedObjects = 0;
+        objectsToFix = objs.Length;
+
+        foreach (Health obj in objs) {
+            obj.value = 0;
+        }
+
         StartCoroutine(GameLoop());
     }
 
@@ -48,7 +56,7 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator GameLoop() {
-        while (numberOfFixedObjects == objectsToFix) {
+        while (numberOfFixedObjects != objectsToFix) {
             if (isGameOver) {
                 GameOver();
                 yield break;
