@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class TetherHook : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("Trigger" + collision.name);
-        if (collision.CompareTag("RopeSegment")) {
-            GameObject hook = GameObject.Find("Hook");
+        if (collision.CompareTag("Hook")) {
+            GameObject hook = collision.gameObject;
             hook.transform.parent = transform;
             hook.transform.position = transform.position;
-            hook.GetComponent<HingeJoint2D>().connectedBody = GetComponent<Rigidbody2D>();
+            hook.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            hook.transform.SetParent(transform, false);
+            //hook.transform.position = transform.position;
+            hook.GetComponent<Hook>().Attach();
+            hook.GetComponentInChildren<RopeScript>().firstNode.GetComponent<HingeJoint2D>().connectedBody = GetComponent<Rigidbody2D>();
         }
     }
 }

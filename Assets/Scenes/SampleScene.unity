@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &96466379 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 716407849025358037, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
+  m_PrefabInstance: {fileID: 729858632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +437,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5767238677245654537, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
+      propertyPath: origin
+      value: 
+      objectReference: {fileID: 96466379}
     m_RemovedComponents:
     - {fileID: 4787158165518293722, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
@@ -453,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!60 &1487093298
 PolygonCollider2D:
   m_ObjectHideFlags: 0
