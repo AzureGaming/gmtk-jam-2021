@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThrowHook : MonoBehaviour {
     public GameObject hookPrefab;
+    public Transform origin;
 
     GameObject currentHook;
     bool isHookActive = false;
@@ -21,10 +22,9 @@ public class ThrowHook : MonoBehaviour {
     }
 
     void CreateHook() {
-        Vector2 destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         currentHook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
-
-        currentHook.GetComponent<RopeScript>().destination = destination;
-
+        currentHook.GetComponent<Rigidbody2D>().velocity = origin.right * 2;
+        //currentHook.GetComponentInChildren<RopeScript>().destination = destination;
     }
 }

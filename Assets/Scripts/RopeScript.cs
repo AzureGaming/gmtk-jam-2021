@@ -9,8 +9,10 @@ public class RopeScript : MonoBehaviour {
 
     float distanceBetweenNodes = 0.5f;
     GameObject player;
+    public GameObject firstNode;
     GameObject lastNode;
     bool isDone = false;
+    public bool isAttached = false;
     List<GameObject> nodes = new List<GameObject>();
     int vertexCount = 2; // hook and player
     LineRenderer lr;
@@ -21,6 +23,7 @@ public class RopeScript : MonoBehaviour {
 
     private void Start() {
         player = GameObject.Find("Player");
+        firstNode = gameObject;
         lastNode = gameObject;
 
         nodes.Add(lastNode);
@@ -29,19 +32,23 @@ public class RopeScript : MonoBehaviour {
     private void Update() {
         transform.position = Vector2.MoveTowards(transform.position, destination, speed);
 
-        if ((Vector2)transform.position != destination) {
+        if ((Vector2)transform.position != destination && !isAttached) {
             // Hook is travelling
             if (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
                 CreateNode();
             }
-        } else if (!isDone) {
-            isDone = true;
-            // if hook gets to position before all nodes are created, create the rest
-            while (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
-                CreateNode();
-            }
+        }
+        if (isAttached) {
             lastNode.GetComponent<HingeJoint2D>().connectedBody = player.GetComponent<Rigidbody2D>();
         }
+        //else if (!isDone) {
+        //    isDone = true;
+        //    // if hook gets to position before all nodes are created, create the rest
+        //    while (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
+        //        CreateNode();
+        //    }
+        //    lastNode.GetComponent<HingeJoint2D>().connectedBody = player.GetComponent<Rigidbody2D>();
+        //}
 
         RenderLine();
     }
