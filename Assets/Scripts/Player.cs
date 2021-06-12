@@ -27,27 +27,27 @@ public class Player : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.D)) {
-            Vector3 newPos = transform.position;
-            newPos.x += 10f;
-            rb.AddForce(newPos);
+            Vector2 velocity = Vector2.zero;
+            velocity = Vector2.right;
+            rb.AddForce(velocity * 3f);
         }
 
         if (Input.GetKeyDown(KeyCode.W)) {
-            Vector3 newPos = transform.position;
-            newPos.y += 10f;
-            rb.AddForce(newPos);
+            Vector2 velocity = Vector2.zero;
+            velocity = Vector2.up;
+            rb.AddForce(velocity * 3f);
         }
 
         if (Input.GetKeyDown(KeyCode.S)) {
-            Vector3 newPos = transform.position;
-            newPos.y -= 10f;
-            rb.AddForce(newPos);
+            Vector2 velocity = Vector2.zero;
+            velocity = Vector2.down;
+            rb.AddForce(velocity * 3f);
         }
 
         if (Input.GetKeyDown(KeyCode.A)) {
-            Vector3 newPos = transform.position;
-            newPos.x -= 10f;
-            rb.AddForce(newPos);
+            Vector2 velocity = Vector2.zero;
+            velocity = Vector2.left;
+            rb.AddForce(velocity * 3f);
         }
     }
 
