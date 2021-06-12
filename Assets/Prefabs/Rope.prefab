@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126135788623687758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.16558057, y: 0.375942, z: -0.12924576}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2126135789657936719}
@@ -47,7 +47,7 @@ MonoBehaviour:
   hook: {fileID: 2126135789657936713}
   ropeSegmentPrefabs:
   - {fileID: 4289378103786021925, guid: 322984c6c2893b74b8983fc2ea4661b6, type: 3}
-  numLinks: 5
+  numLinks: 2
 --- !u!1 &2126135789657936718
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -116,7 +116,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.16558057, y: 0.375942}
+  m_ConnectedAnchor: {x: 0, y: 0}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

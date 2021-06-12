@@ -10,8 +10,8 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.D)) {
-            rb.AddForce(Vector2.right * 2);
-        }
+        //if (Input.GetKeyDown(KeyCode.D)) {
+        //    rb.AddForce(Vector2.right * 2);
+        //}
     }
 }

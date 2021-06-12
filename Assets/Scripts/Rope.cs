@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rope : MonoBehaviour {
     public Rigidbody2D hook;
     public GameObject[] ropeSegmentPrefabs;
-    public int numLinks = 5;
+    public int numLinks = 1;
 
     private void Start() {
         GenerateRope();
