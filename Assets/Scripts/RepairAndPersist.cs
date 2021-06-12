@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HyperDriveRepaired : RepairedState {
+public class RepairAndPersist : RepairedState {
     Animator animator;
 
     private void Awake() {

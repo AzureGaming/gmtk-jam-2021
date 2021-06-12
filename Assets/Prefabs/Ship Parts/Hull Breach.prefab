@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5089692222707800751}
   - component: {fileID: 5089692222707800748}
+  - component: {fileID: 2416348342272997938}
   - component: {fileID: 5089692222707800746}
   - component: {fileID: 4782981850356741180}
   - component: {fileID: 1746327451}
-  - component: {fileID: 877341739366409683}
   m_Layer: 0
   m_Name: Hull Breach
   m_TagString: Untagged
@@ -49,7 +49,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 5089692222707800746}
-  repairedState: {fileID: 877341739366409683}
+  repairedState: {fileID: 2416348342272997938}
+--- !u!114 &2416348342272997938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089692222707800737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d3477991c4e244682a4c5b7922e549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5089692222707800746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,18 +152,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.09280744}
   m_EdgeRadius: 0
---- !u!114 &877341739366409683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5089692222707800737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d3477991c4e244682a4c5b7922e549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4493358976071423884
 PrefabInstance:
   m_ObjectHideFlags: 0
