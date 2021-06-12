@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 1624828081627318784
     second: Astronaut-Sheet_1
+  - first:
+      213: 357369067016140372
+    second: Astronaut-Sheet_2
+  - first:
+      213: -7865453472202433895
+    second: Astronaut-Sheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,11 +107,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 26
         width: 16
         height: 26
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,11 +128,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 26
         width: 16
         height: 26
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,6 +140,48 @@ TextureImporter:
       bones: []
       spriteID: 00ac972188c8c8610800000000000000
       internalID: 1624828081627318784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456b535e541a5f400800000000000000
+      internalID: 357369067016140372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Astronaut-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ad2007dbb48d290800000000000000
+      internalID: -7865453472202433895
       vertices: []
       indices: 
       edges: []

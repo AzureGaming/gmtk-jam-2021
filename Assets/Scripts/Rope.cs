@@ -3,36 +3,79 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rope : MonoBehaviour {
-    public Rigidbody2D hook;
-    public GameObject[] ropeSegmentPrefabs;
-    public GameObject player;
-    public int numLinks = 5;
+    public Vector2 destination;
+    public float speed = 1f;
+    public GameObject nodePrefab;
+
+    float distanceBetweenNodes = 0.5f;
+    GameObject player;
+    public GameObject firstNode;
+    GameObject lastNode;
+    bool isDone = false;
+    public bool isAttached = false;
+    List<GameObject> nodes = new List<GameObject>();
+    int vertexCount = 2; // hook and player
+    LineRenderer lr;
+
+    private void Awake() {
+        lr = GetComponent<LineRenderer>();
+    }
 
     private void Start() {
-        Debug.Log("Rope start");
-        GenerateRope();
+        player = GameObject.Find("Player");
+        firstNode = gameObject;
+        lastNode = gameObject;
+
+        nodes.Add(lastNode);
     }
 
-    void GenerateRope() {
-        Rigidbody2D prevBod = hook;
-        for (int i = 0; i < numLinks; i++) {
-            //CreateRopeSegment();
-            int index = Random.Range(0, ropeSegmentPrefabs.Length);
-            GameObject newSeg = Instantiate(ropeSegmentPrefabs[index]);
+    private void Update() {
+        transform.position = Vector2.MoveTowards(transform.position, destination, speed);
 
-            newSeg.transform.parent = transform;
-            newSeg.transform.position = transform.position;
-            newSeg.GetComponent<HingeJoint2D>().connectedBody = prevBod;
-            prevBod = newSeg.GetComponent<Rigidbody2D>();
+        if ((Vector2)transform.position != destination && !isAttached) {
+            // Hook is travelling
+            if (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
+                CreateNode();
+            }
         }
-        GameObject playerInstance = GameObject.Find("Player");
-        playerInstance.transform.parent = transform;
-        playerInstance.transform.position = transform.position;
-        playerInstance.GetComponent<HingeJoint2D>().connectedBody = prevBod;
-        Player.OnGrapple?.Invoke();
+        if (isAttached) {
+            lastNode.GetComponent<HingeJoint2D>().connectedBody = player.GetComponent<Rigidbody2D>();
+        }
+        //else if (!isDone) {
+        //    isDone = true;
+        //    // if hook gets to position before all nodes are created, create the rest
+        //    while (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
+        //        CreateNode();
+        //    }
+        //    lastNode.GetComponent<HingeJoint2D>().connectedBody = player.GetComponent<Rigidbody2D>();
+        //}
 
+        RenderLine();
     }
 
-    void CreateRopeSegment() {
+    void CreateNode() {
+        Vector2 pos = player.transform.position - lastNode.transform.position;
+        pos.Normalize();
+        pos *= distanceBetweenNodes;
+        pos += (Vector2)lastNode.transform.position;
+
+        GameObject node = Instantiate(nodePrefab, pos, Quaternion.identity);
+
+        node.transform.parent = transform;
+
+        lastNode.GetComponent<HingeJoint2D>().connectedBody = node.GetComponent<Rigidbody2D>();
+        lastNode = node;
+
+        nodes.Add(lastNode);
+        vertexCount++; // account for new node
+    }
+
+    void RenderLine() {
+        lr.positionCount = vertexCount;
+        for (int i = 0; i < nodes.Count; i++) {
+            lr.SetPosition(i, nodes[i].transform.position);
+        }
+        //account for player
+        lr.SetPosition(nodes.Count, player.transform.position);
     }
 }
