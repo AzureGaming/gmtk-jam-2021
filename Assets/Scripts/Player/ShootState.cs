@@ -2,15 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowHook : PlayerState {
+public class ShootState : PlayerState {
     public GameObject hookPrefab;
     public Transform origin;
+    public Sprite shoot;
+    public Sprite shootWithFuel;
 
     GameObject currentHook;
     bool isHookActive = false;
 
+
     public override PlayerState HandleInput() {
+        OnEnterState();
         return this;
+    }
+
+    void OnEnterState() {
+        if (fuel.hasFuel) {
+            spriteR.sprite = shootWithFuel;
+        } else {
+            spriteR.sprite = shoot;
+        }
     }
 
     private void Update() {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 384356488618040413}
   - component: {fileID: 384356488618040412}
   - component: {fileID: 1918561986535893606}
-  - component: {fileID: 5767238677245654537}
+  - component: {fileID: 3007348332296204100}
   - component: {fileID: 384356488618040415}
   - component: {fileID: 384356488618040385}
   - component: {fileID: 384356488618040414}
@@ -67,8 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934b44242d5aa1748a38d3c9585d4bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootState: {fileID: 5767238677245654537}
---- !u!114 &5767238677245654537
+  shootState: {fileID: 3007348332296204100}
+  idle: {fileID: -1231675173294061193, guid: c64ac57577115514b978ce6cef721274, type: 3}
+  idleWithFuel: {fileID: 357369067016140372, guid: c64ac57577115514b978ce6cef721274, type: 3}
+--- !u!114 &3007348332296204100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,6 +84,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hookPrefab: {fileID: 6931072542827540056, guid: 2efd2e0a58182b14cb98122db67fb2b3, type: 3}
   origin: {fileID: 716407849025358037}
+  shoot: {fileID: 1624828081627318784, guid: c64ac57577115514b978ce6cef721274, type: 3}
+  shootWithFuel: {fileID: -7865453472202433895, guid: c64ac57577115514b978ce6cef721274, type: 3}
 --- !u!212 &384356488618040415
 SpriteRenderer:
   m_ObjectHideFlags: 0

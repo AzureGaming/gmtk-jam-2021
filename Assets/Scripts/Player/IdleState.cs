@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class IdleState : PlayerState {
     public PlayerState shootState;
+    public Sprite idle;
+    public Sprite idleWithFuel;
+
     Rigidbody2D rb;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
         rb = GetComponent<Rigidbody2D>();
     }
 
     public override PlayerState HandleInput() {
+        OnEnterState();
         if (Input.GetMouseButtonDown(0)) {
             return shootState;
         }
 
         return this;
+    }
+
+    void OnEnterState() {
+        if (fuel.hasFuel) {
+            spriteR.sprite = idleWithFuel;
+        } else {
+            spriteR.sprite = idle;
+        }
     }
 
     void Update() {
