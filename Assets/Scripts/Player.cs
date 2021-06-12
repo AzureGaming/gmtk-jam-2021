@@ -10,8 +10,28 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        //if (Input.GetKeyDown(KeyCode.D)) {
-        //    rb.AddForce(Vector2.right * 2);
-        //}
+        if (Input.GetKey(KeyCode.D)) {
+            Vector3 newPos = transform.position;
+            newPos.x += 0.01f;
+            transform.position = newPos;
+        }
+
+        if (Input.GetKey(KeyCode.W)) {
+            Vector3 newPos = transform.position;
+            newPos.y += 0.01f;
+            transform.position = newPos;
+        }
+
+        if (Input.GetKey(KeyCode.S)) {
+            Vector3 newPos = transform.position;
+            newPos.y -= 0.01f;
+            transform.position = newPos;
+        }
+
+        if (Input.GetKey(KeyCode.A)) {
+            Vector3 newPos = transform.position;
+            newPos.x -= 0.01f;
+            transform.position = newPos;
+        }
     }
 }
