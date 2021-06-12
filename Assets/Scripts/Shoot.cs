@@ -19,4 +19,9 @@ public class Shoot : MonoBehaviour {
         GameObject line = Instantiate(lineRope);
         line.GetComponent<LineRope>().destination = projectile.transform;
     }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, origin.right);
+    }
 }

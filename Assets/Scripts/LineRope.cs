@@ -46,6 +46,17 @@ public class LineRope : MonoBehaviour {
         StartCoroutine(DrawRope());
     }
 
+    private void Update() {
+        ContactFilter2D filter;
+        RaycastHit2D hit = Physics2D.Raycast(ropeSegments[ropeSegments.Count - 1].currentPos, transform.forward);
+        if (hit.collider != null) {
+            if (hit.collider.name == "TetherHook") { //TODO: use filter
+                destination = hit.collider.transform;
+                // TODO: Clean up projectile destination
+            }
+        }
+    }
+
     private void FixedUpdate() {
         Simulate();
     }
