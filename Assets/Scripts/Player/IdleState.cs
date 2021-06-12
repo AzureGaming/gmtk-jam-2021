@@ -6,6 +6,7 @@ public class IdleState : PlayerState {
     public PlayerState shootState;
     public Sprite idle;
     public Sprite idleWithFuel;
+    public AudioSource jetSound;
 
     Rigidbody2D rb;
 
@@ -32,28 +33,32 @@ public class IdleState : PlayerState {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D)) {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.right;
-            rb.AddForce(velocity * 3f);
+            rb.AddForce(velocity);
+            jetSound.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.W)) {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.up;
-            rb.AddForce(velocity * 3f);
+            rb.AddForce(velocity);
+            jetSound.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.S)) {
+        if (Input.GetKey(KeyCode.S)) {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.down;
-            rb.AddForce(velocity * 3f);
+            rb.AddForce(velocity);
+            jetSound.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A)) {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.left;
-            rb.AddForce(velocity * 3f);
+            rb.AddForce(velocity);
+            jetSound.Play();
         }
     }
 }
