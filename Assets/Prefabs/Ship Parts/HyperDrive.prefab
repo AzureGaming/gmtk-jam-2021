@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 562378152845121968}
   - component: {fileID: 562378152845121975}
   - component: {fileID: 562378152845121974}
+  - component: {fileID: 3872728379903245259}
+  - component: {fileID: 1730508956788883468}
   - component: {fileID: 562378152845121972}
   - component: {fileID: 562378152845121973}
-  - component: {fileID: 3872728379903245259}
   m_Layer: 0
   m_Name: HyperDrive
   m_TagString: Untagged
@@ -115,6 +116,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 562378152845121975}
   repairedState: {fileID: 3872728379903245259}
+--- !u!114 &3872728379903245259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562378152845121971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0be059cfe7f1ab48ae8f6890a0092df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1730508956788883468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562378152845121971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13b1fe500fe454f84069ea0e1db953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 562378152845121975}
+  smokePrefab: {fileID: 5123779100737600992, guid: 00952b1152de4d64ebe6fdf52f39e9f8, type: 3}
 --- !u!70 &562378152845121972
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -150,18 +177,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3872728379903245259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562378152845121971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0be059cfe7f1ab48ae8f6890a0092df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &562378153096162019
 PrefabInstance:
   m_ObjectHideFlags: 0
