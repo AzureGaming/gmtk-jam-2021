@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour {
     private void Update() {
-        var mouse = Input.mousePosition;
-        var screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
-        var offset = new Vector2(mouse.x - screenPoint.x, mouse.y - screenPoint.y);
-        var angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 objPos = transform.position;
+        Vector2 direction = mousePos - objPos;
+        transform.right = direction;
     }
 }

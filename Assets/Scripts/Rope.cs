@@ -5,9 +5,11 @@ using UnityEngine;
 public class Rope : MonoBehaviour {
     public Rigidbody2D hook;
     public GameObject[] ropeSegmentPrefabs;
-    public int numLinks = 1;
+    public GameObject player;
+    public int numLinks = 5;
 
     private void Start() {
+        Debug.Log("Rope start");
         GenerateRope();
     }
 
@@ -23,6 +25,12 @@ public class Rope : MonoBehaviour {
             newSeg.GetComponent<HingeJoint2D>().connectedBody = prevBod;
             prevBod = newSeg.GetComponent<Rigidbody2D>();
         }
+        GameObject playerInstance = GameObject.Find("Player");
+        playerInstance.transform.parent = transform;
+        playerInstance.transform.position = transform.position;
+        playerInstance.GetComponent<HingeJoint2D>().connectedBody = prevBod;
+        Player.OnGrapple?.Invoke();
+
     }
 
     void CreateRopeSegment() {
