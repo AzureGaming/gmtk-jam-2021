@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowHook : MonoBehaviour {
+public class ThrowHook : PlayerState {
     public GameObject hookPrefab;
     public Transform origin;
 
     GameObject currentHook;
     bool isHookActive = false;
+
+    public override PlayerState HandleInput() {
+        return this;
+    }
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {

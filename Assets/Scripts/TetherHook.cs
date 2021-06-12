@@ -12,7 +12,7 @@ public class TetherHook : MonoBehaviour {
             hook.transform.SetParent(transform, false);
             //hook.transform.position = transform.position;
             hook.GetComponent<Hook>().Attach();
-            hook.GetComponentInChildren<RopeScript>().firstNode.GetComponent<HingeJoint2D>().connectedBody = GetComponent<Rigidbody2D>();
+            hook.GetComponentInChildren<Rope>().firstNode.GetComponent<HingeJoint2D>().connectedBody = GetComponent<Rigidbody2D>();
         }
     }
 }

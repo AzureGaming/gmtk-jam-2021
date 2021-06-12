@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour {
     private void Update() {
-        GetComponentInChildren<RopeScript>().destination = transform.position;
+        GetComponentInChildren<Rope>().destination = transform.position;
     }
 
     public void Attach() {
-        GetComponentInChildren<RopeScript>().isAttached = true;
+        GetComponentInChildren<Rope>().isAttached = true;
     }
 }
