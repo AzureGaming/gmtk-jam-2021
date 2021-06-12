@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {fileID: 0}
+  destination: {fileID: 0}
 --- !u!120 &5044360074434653279
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +65,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 5d0d0502686d7a844b0abaf4cb034876, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
