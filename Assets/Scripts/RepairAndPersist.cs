@@ -11,5 +11,6 @@ public class RepairAndPersist : RepairedState {
 
     public override void Repaired() {
         animator.SetTrigger("Repaired");
+        GameManager.OnRepairedShipPart?.Invoke();
     }
 }
