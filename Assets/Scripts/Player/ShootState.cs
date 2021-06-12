@@ -7,6 +7,7 @@ public class ShootState : PlayerState {
     public Transform origin;
     public Sprite shoot;
     public Sprite shootWithFuel;
+    public List<AudioSource> shootSounds;
 
     GameObject currentHook;
     bool isHookActive = false;
@@ -41,6 +42,12 @@ public class ShootState : PlayerState {
         //Vector2 destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         currentHook = Instantiate(hookPrefab, transform.position, Quaternion.identity);
         currentHook.GetComponent<Rigidbody2D>().velocity = origin.right * 2;
+        PlayShootSound();
         //currentHook.GetComponentInChildren<RopeScript>().destination = destination;
+    }
+
+    void PlayShootSound() {
+        int index = Random.Range(0, shootSounds.Count);
+        shootSounds[index].Play();
     }
 }
