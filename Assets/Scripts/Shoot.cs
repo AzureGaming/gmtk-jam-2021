@@ -15,10 +15,21 @@ public class Shoot : MonoBehaviour {
 
     void SpawnProjectile() {
         GameObject projectile = Instantiate(projectilePrefab, origin.position, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().AddForce(origin.right * 5, ForceMode2D.Impulse);
-        GameObject line = Instantiate(lineRope);
-        line.GetComponent<LineRope>().destination = projectile.transform;
+        StartCoroutine(Test());
+        //GameObject line = Instantiate(lineRope);
+        //line.GetComponent<LineRope>().destination = projectile.transform;
     }
+
+    IEnumerator Test() {
+        Vector3 direction = origin.right;
+        for (; ; ) {
+            Vector3 pos = GameObject.Find("Hook").transform.position;
+            pos += direction * 0.01f;
+            GameObject.Find("Hook").transform.position = pos;
+            yield return null;
+        }
+    }
+
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.red;
