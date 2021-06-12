@@ -23,7 +23,7 @@ public class Oxygen : MonoBehaviour {
 
     IEnumerator Deplete() {
         while (value > 0) {
-            value-= 5;
+            value -= 2;
             yield return new WaitForSeconds(0.5f);
         }
         Debug.LogWarning("Out of oxygen.");
@@ -31,7 +31,6 @@ public class Oxygen : MonoBehaviour {
 
     void CheckOxygenThreshold() {
         if (value <= 50 && isWarningCheckValid) {
-            Debug.Log("Warn");
             warning.Play();
             isWarningCheckValid = false;
         }
