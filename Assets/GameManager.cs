@@ -45,10 +45,12 @@ public class GameManager : MonoBehaviour {
 
     void GameOver() {
         Debug.LogWarning("IMPLEMENT LOSE");
+        CanvasManager.OnLoseGame?.Invoke();
     }
 
     void WinGame() {
         Debug.LogWarning("IMPLEMENT WIN");
+        CanvasManager.OnWinGame?.Invoke();
     }
 
     void IncrementFixed() {
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour {
     }
 
     IEnumerator GameLoop() {
-        while (numberOfFixedObjects != objectsToFix) {
+        while (numberOfFixedObjects < objectsToFix) {
             if (isGameOver) {
                 GameOver();
                 yield break;

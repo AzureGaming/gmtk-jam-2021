@@ -6,6 +6,16 @@ public class Fixable : MonoBehaviour {
     public Health source;
     public RepairedState repairedState;
 
+    Collider2D collider2d;
+
+    private void Awake() {
+        collider2d = GetComponent<Collider2D>();
+    }
+
+    private void Start() {
+        collider2d.enabled = true;
+    }
+
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             Repair();
@@ -19,6 +29,7 @@ public class Fixable : MonoBehaviour {
 
         if (source.value == 100) {
             repairedState?.Repaired();
+            GetComponent<Collider2D>().enabled = false;
         }
     }
 }

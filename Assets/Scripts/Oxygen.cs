@@ -26,7 +26,7 @@ public class Oxygen : MonoBehaviour {
             value -= 2;
             yield return new WaitForSeconds(0.5f);
         }
-        Debug.LogWarning("Out of oxygen.");
+        GameManager.OnPlayerDeath?.Invoke();
     }
 
     void CheckOxygenThreshold() {
