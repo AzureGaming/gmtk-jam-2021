@@ -15,8 +15,8 @@ public class Player : MonoBehaviour {
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         hingeJoint2d = GetComponent<HingeJoint2D>();
-
     }
+
     private void OnEnable() {
         OnGrapple += EnableHinge;
     }
@@ -26,28 +26,28 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKeyDown(KeyCode.D)) {
             Vector3 newPos = transform.position;
-            newPos.x += 0.01f;
-            transform.position = newPos;
+            newPos.x += 10f;
+            rb.AddForce(newPos);
         }
 
-        if (Input.GetKey(KeyCode.W)) {
+        if (Input.GetKeyDown(KeyCode.W)) {
             Vector3 newPos = transform.position;
-            newPos.y += 0.01f;
-            transform.position = newPos;
+            newPos.y += 10f;
+            rb.AddForce(newPos);
         }
 
-        if (Input.GetKey(KeyCode.S)) {
+        if (Input.GetKeyDown(KeyCode.S)) {
             Vector3 newPos = transform.position;
-            newPos.y -= 0.01f;
-            transform.position = newPos;
+            newPos.y -= 10f;
+            rb.AddForce(newPos);
         }
 
-        if (Input.GetKey(KeyCode.A)) {
+        if (Input.GetKeyDown(KeyCode.A)) {
             Vector3 newPos = transform.position;
-            newPos.x -= 0.01f;
-            transform.position = newPos;
+            newPos.x -= 10f;
+            rb.AddForce(newPos);
         }
     }
 
