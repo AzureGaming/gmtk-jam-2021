@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5089692222707800748}
   - component: {fileID: 2416348342272997938}
   - component: {fileID: 5089692222707800746}
+  - component: {fileID: 8927641977779229362}
   - component: {fileID: 4782981850356741180}
   - component: {fileID: 1746327451}
   m_Layer: 0
@@ -75,6 +76,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
+--- !u!114 &8927641977779229362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089692222707800737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b13b1fe500fe454f84069ea0e1db953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 5089692222707800746}
+  smokePrefab: {fileID: 5123779100737600992, guid: 00952b1152de4d64ebe6fdf52f39e9f8, type: 3}
 --- !u!212 &4782981850356741180
 SpriteRenderer:
   m_ObjectHideFlags: 0
