@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &4787158165518293722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hookPrefab: {fileID: 6931072542827540056, guid: 2efd2e0a58182b14cb98122db67fb2b3, type: 3}
+  origin: {fileID: 0}
 --- !u!1 &1870896822262528637
 GameObject:
   m_ObjectHideFlags: 0

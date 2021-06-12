@@ -377,6 +377,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 384356488618040385, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 384356488618040385, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
+      propertyPath: m_Size.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 384356488618040385, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 384356488618040385, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.13
+      objectReference: {fileID: 0}
     - target: {fileID: 384356488618040410, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
       propertyPath: m_Name
       value: Player
@@ -435,7 +451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 384356488618040414, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5767238677245654537, guid: c2f995f6d0333a540b13fb044e7cfe95, type: 3}
       propertyPath: origin
