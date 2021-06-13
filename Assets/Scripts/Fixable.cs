@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fixable : MonoBehaviour {
     public Health source;
     public RepairedState repairedState;
+    public AudioSource welding;
 
     Collider2D collider2d;
 
@@ -16,9 +17,21 @@ public class Fixable : MonoBehaviour {
         collider2d.enabled = true;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            welding.Play();
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             Repair();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            welding.Stop();
         }
     }
 
