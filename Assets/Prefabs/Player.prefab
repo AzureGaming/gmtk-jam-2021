@@ -191,6 +191,8 @@ MonoBehaviour:
   - {fileID: 4290816203405159482}
   - {fileID: 6082166882129664967}
   - {fileID: 7418396748728779841}
+  projectileSpeed: 4
+  idle: {fileID: 1918561986535893606}
 --- !u!82 &4290816203405159482
 AudioSource:
   m_ObjectHideFlags: 0
