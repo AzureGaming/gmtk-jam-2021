@@ -15,6 +15,7 @@ public class IdleState : PlayerState {
     public Sprite idleWithoutFuelWithFixing;
     public AudioSource jetSound;
     public GameObject thrusterSmoke;
+    public Health fuelTimer;
 
     bool canMove = true;
     Rigidbody2D rb;
@@ -32,6 +33,10 @@ public class IdleState : PlayerState {
     private void OnDisable() {
         OnFixing -= SetFixing;
         OnStopFixing -= UnSetFixing;
+    }
+
+    private void Start() {
+        fuelTimer.value = 100;
     }
 
     public override PlayerState HandleInput() {
@@ -86,8 +91,17 @@ public class IdleState : PlayerState {
     }
 
     IEnumerator MoveCooldown() {
+        fuelTimer.value = 0;
         canMove = false;
-        yield return new WaitForSeconds(3f);
+
+        float time = 0f;
+        float totalTime = 3f;
+        while (time <= totalTime) {
+            float fuelTimerValue = (time / totalTime ) * 100;
+            fuelTimer.value = Mathf.RoundToInt(fuelTimerValue);
+            time += Time.deltaTime;
+            yield return null;
+        }
         canMove = true;
     }
 }
