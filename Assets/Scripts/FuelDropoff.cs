@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FuelDropoff : MonoBehaviour {
-    bool isActive = true;
+    public bool isActive = true;
     Animator animator;
 
     private void Awake() {
@@ -15,6 +15,7 @@ public class FuelDropoff : MonoBehaviour {
             comp.Drop();
             animator.SetTrigger("Fueled");
             isActive = false;
+            GameManager.OnRepairedShipPart?.Invoke();
         }
     }
 }

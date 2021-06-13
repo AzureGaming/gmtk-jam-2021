@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
         Health[] objs = FindObjectsOfType<Health>();
 
         numberOfFixedObjects = 0;
-        objectsToFix = objs.Length;
+        objectsToFix = objs.Length + 1; // account for fueldropoff
 
         foreach (Health obj in objs) {
             obj.value = 0;

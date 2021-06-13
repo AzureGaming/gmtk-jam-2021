@@ -11,6 +11,7 @@ public class TaskList : MonoBehaviour {
     public GameObject taskItemPrefab;
 
     Dictionary<Fixable, GameObject> taskDictionary = new Dictionary<Fixable, GameObject>();
+    GameObject fuelDropOffText;
 
     private void OnEnable() {
         OnUpdateList += UpdateStatuses;
@@ -33,6 +34,15 @@ public class TaskList : MonoBehaviour {
                 task.Value.GetComponent<TextMeshProUGUI>().color = Color.red;
             }
         }
+
+        FuelDropoff fuelDropOff = FindObjectOfType<FuelDropoff>();
+        if (fuelDropOff != null && fuelDropOffText != null) {
+            if (fuelDropOff.isActive) {
+                fuelDropOffText.GetComponent<TextMeshProUGUI>().color = Color.red;
+            } else {
+                fuelDropOffText.GetComponent<TextMeshProUGUI>().color = Color.green;
+            }
+        }
     }
 
     void GetTasks() {
@@ -46,6 +56,12 @@ public class TaskList : MonoBehaviour {
             text.SetText(GetTaskFromTag(task.gameObject.tag));
             taskDictionary.Add(task, obj);
         }
+
+        FuelDropoff fuelDropOff = FindObjectOfType<FuelDropoff>();
+        GameObject obj2 = Instantiate(taskItemPrefab, transform, false);
+        fuelDropOffText = obj2;
+        TextMeshProUGUI text2 = obj2.GetComponent<TextMeshProUGUI>();
+        text2.SetText(GetTaskFromTag(fuelDropOff.gameObject.tag));
     }
 
     string GetTaskFromTag(string tag) {
@@ -60,7 +76,7 @@ public class TaskList : MonoBehaviour {
                 return "Enable the Hyper Drive capacitors.";
             case "Thruster":
                 return "Reconnect thrusters.";
-            default:    
+            default:
                 return "INVALID TASK";
         }
     }
