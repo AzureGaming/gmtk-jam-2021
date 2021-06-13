@@ -43,10 +43,10 @@ public class Monster : MonoBehaviour {
             Instantiate(blood, transform.position, Quaternion.identity);
             crunch.Play();
             Destroy(collision.gameObject);
+            StopAllCoroutines();
+            StartCoroutine(FadeOut());
+            GameManager.OnPlayerDeath?.Invoke();
         }
-        StopAllCoroutines();
-        StartCoroutine(FadeOut());
-        GameManager.OnPlayerDeath?.Invoke();
     }
 
     void StartRoutine() {
@@ -101,7 +101,7 @@ public class Monster : MonoBehaviour {
 
     void TeleportNearPlayer() {
         Vector2 randomScreenPos = GetTeleportPos();
-        while(Vector2.Distance(player.position, randomScreenPos) < 3f) {
+        while (Vector2.Distance(player.position, randomScreenPos) < 3f) {
             randomScreenPos = GetTeleportPos();
         }
 
