@@ -43,6 +43,7 @@ Transform:
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_Children:
   - {fileID: 716407849025358037}
+  - {fileID: 1392196602605425144}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -81,6 +82,7 @@ MonoBehaviour:
   idleWithFuelWithFixing: {fileID: -3262361242566834984, guid: c64ac57577115514b978ce6cef721274, type: 3}
   idleWithoutFuelWithFixing: {fileID: 1624828081627318784, guid: c64ac57577115514b978ce6cef721274, type: 3}
   jetSound: {fileID: 3615043312937289347}
+  thrusterSmoke: {fileID: 7675826494233400666, guid: 29869557936b73c459955798e555deb3, type: 3}
 --- !u!82 &3615043312937289347
 AudioSource:
   m_ObjectHideFlags: 0
@@ -994,3 +996,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &273749561958702390
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 384356488618040413}
+    m_Modifications:
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675826494233400666, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: m_Name
+      value: Zippy Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005644224329685493, guid: 29869557936b73c459955798e555deb3, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 29869557936b73c459955798e555deb3, type: 3}
+--- !u!4 &1392196602605425144 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1197569002402663630, guid: 29869557936b73c459955798e555deb3, type: 3}
+  m_PrefabInstance: {fileID: 273749561958702390}
+  m_PrefabAsset: {fileID: 0}

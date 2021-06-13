@@ -14,7 +14,9 @@ public class IdleState : PlayerState {
     public Sprite idleWithFuelWithFixing;
     public Sprite idleWithoutFuelWithFixing;
     public AudioSource jetSound;
+    public GameObject thrusterSmoke;
 
+    bool canMove = true;
     Rigidbody2D rb;
 
     protected override void Awake() {
@@ -64,31 +66,28 @@ public class IdleState : PlayerState {
 
     void Update() {
         if (Input.GetKey(KeyCode.D)) {
-            Vector2 velocity = Vector2.zero;
-            velocity = Vector2.right;
-            rb.AddForce(velocity);
-            //jetSound.Play();
+            Move(Vector2.right);
+        } else if (Input.GetKey(KeyCode.W)) {
+            Move(Vector2.up);
+        } else if (Input.GetKey(KeyCode.S)) {
+            Move(Vector2.down);
+        } else if (Input.GetKey(KeyCode.A)) {
+            Move(Vector2.left);
         }
+    }
 
-        if (Input.GetKey(KeyCode.W)) {
-            Vector2 velocity = Vector2.zero;
-            velocity = Vector2.up;
-            rb.AddForce(velocity);
-            //jetSound.Play();
+    void Move(Vector2 direction) {
+        if (canMove) {
+            float speed = 2f;
+            Vector2 velocity = direction * speed;
+            rb.AddForce(velocity, ForceMode2D.Impulse);
+            StartCoroutine(MoveCooldown());
         }
+    }
 
-        if (Input.GetKey(KeyCode.S)) {
-            Vector2 velocity = Vector2.zero;
-            velocity = Vector2.down;
-            rb.AddForce(velocity);
-            //jetSound.Play();
-        }
-
-        if (Input.GetKey(KeyCode.A)) {
-            Vector2 velocity = Vector2.zero;
-            velocity = Vector2.left;
-            rb.AddForce(velocity);
-            //jetSound.Play();
-        }
+    IEnumerator MoveCooldown() {
+        canMove = false;
+        yield return new WaitForSeconds(3f);
+        canMove = true;
     }
 }

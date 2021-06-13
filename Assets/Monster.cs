@@ -102,7 +102,7 @@ public class Monster : MonoBehaviour {
 
     void TeleportNearPlayer() {
         Vector2 randomScreenPos = GetTeleportPos();
-        while (Vector2.Distance(player.position, randomScreenPos) < 3f) {
+        while (Vector2.Distance(player.position, randomScreenPos) < 6f) {
             randomScreenPos = GetTeleportPos();
         }
 
