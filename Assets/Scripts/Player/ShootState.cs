@@ -53,7 +53,7 @@ public class ShootState : PlayerState {
         currentHook.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         float distance = Vector2.Distance(currentHook.transform.position, origin.position);
-        while (distance > 0.2f) {
+        while (distance > 0.8f) {
             RetractHook();
             distance = Vector2.Distance(currentHook.transform.position, origin.position);
             yield return null;
