@@ -24,7 +24,7 @@ public class Oxygen : MonoBehaviour {
     IEnumerator Deplete() {
         while (value > 0) {
             value -= 2;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
         }
         Player.OnOxygenDepleted?.Invoke();
         GameManager.OnPlayerDeath?.Invoke();
