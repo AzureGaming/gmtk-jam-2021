@@ -66,6 +66,7 @@ public class Monster : MonoBehaviour {
             float chaseTime = Random.Range(3f, 8f);
             float timeElapsed = 0f;
 
+            yield return new WaitForSeconds(0.3f);
             collider2d.enabled = true;
 
             // Play a random sound
