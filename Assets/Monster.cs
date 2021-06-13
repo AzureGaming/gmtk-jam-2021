@@ -7,6 +7,8 @@ public class Monster : MonoBehaviour {
     public static TriggerMonster OnTriggerMonster;
 
     public List<AudioSource> sounds = new List<AudioSource>();
+    public AudioSource crunch;
+    public GameObject blood;
 
     Transform player;
     SpriteRenderer spriteR;
@@ -38,6 +40,8 @@ public class Monster : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
+            Instantiate(blood, transform.position, Quaternion.identity);
+            crunch.Play();
             Destroy(collision.gameObject);
         }
         StopAllCoroutines();
@@ -91,8 +95,15 @@ public class Monster : MonoBehaviour {
         chosenAudio.Play();
     }
 
+    Vector2 GetTeleportPos() {
+        return Camera.main.ViewportToWorldPoint(new Vector2(Random.value, Random.value));
+    }
+
     void TeleportNearPlayer() {
-        Vector2 randomScreenPos = Camera.main.ViewportToWorldPoint(new Vector2(Random.value, Random.value));
+        Vector2 randomScreenPos = GetTeleportPos();
+        while(Vector2.Distance(player.position, randomScreenPos) < 3f) {
+            randomScreenPos = GetTeleportPos();
+        }
 
         transform.position = randomScreenPos;
     }
