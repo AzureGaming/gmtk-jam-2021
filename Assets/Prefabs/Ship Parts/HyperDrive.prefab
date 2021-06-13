@@ -118,6 +118,7 @@ MonoBehaviour:
   source: {fileID: 562378152845121975}
   repairedState: {fileID: 3872728379903245259}
   welding: {fileID: 8861306241623149691}
+  sparks: {fileID: 2189192133840892924, guid: 1f714c7c874108f4aac93cdc76d6f881, type: 3}
 --- !u!114 &3872728379903245259
 MonoBehaviour:
   m_ObjectHideFlags: 0

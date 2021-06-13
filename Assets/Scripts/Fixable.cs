@@ -6,8 +6,10 @@ public class Fixable : MonoBehaviour {
     public Health source;
     public RepairedState repairedState;
     public AudioSource welding;
+    public GameObject sparks;
 
     Collider2D collider2d;
+    GameObject sparksRef;
 
     private void Awake() {
         collider2d = GetComponent<Collider2D>();
@@ -18,8 +20,9 @@ public class Fixable : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Player")) {
+        if (collision.CompareTag("Player") && source.value < 100) {
             welding.Play();
+            sparksRef = Instantiate(sparks, transform.position, Quaternion.identity);
         }
     }
 
@@ -32,6 +35,9 @@ public class Fixable : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
             welding.Stop();
+            if (sparksRef) {
+                Destroy(sparksRef);
+            }
         }
     }
 
@@ -41,6 +47,9 @@ public class Fixable : MonoBehaviour {
         }
 
         if (source.value == 100) {
+            if (sparksRef) {
+                Destroy(sparksRef);
+            }
             repairedState?.Repaired();
             GetComponent<Collider2D>().enabled = false;
         }
