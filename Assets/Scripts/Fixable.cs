@@ -23,6 +23,7 @@ public class Fixable : MonoBehaviour {
         if (collision.CompareTag("Player") && source.value < 100) {
             welding.Play();
             sparksRef = Instantiate(sparks, transform.position, Quaternion.identity);
+            IdleState.OnFixing?.Invoke();
         }
     }
 
@@ -34,6 +35,7 @@ public class Fixable : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.CompareTag("Player")) {
+            IdleState.OnStopFixing?.Invoke();
             welding.Stop();
             if (sparksRef) {
                 Destroy(sparksRef);
@@ -50,6 +52,7 @@ public class Fixable : MonoBehaviour {
             if (sparksRef) {
                 Destroy(sparksRef);
             }
+            IdleState.OnStopFixing?.Invoke();
             repairedState?.Repaired();
             GetComponent<Collider2D>().enabled = false;
         }

@@ -78,6 +78,8 @@ MonoBehaviour:
   shootState: {fileID: 3007348332296204100}
   idle: {fileID: -1231675173294061193, guid: c64ac57577115514b978ce6cef721274, type: 3}
   idleWithFuel: {fileID: -7341847856794151370, guid: c64ac57577115514b978ce6cef721274, type: 3}
+  idleWithFuelWithFixing: {fileID: -3262361242566834984, guid: c64ac57577115514b978ce6cef721274, type: 3}
+  idleWithoutFuelWithFixing: {fileID: 1624828081627318784, guid: c64ac57577115514b978ce6cef721274, type: 3}
   jetSound: {fileID: 3615043312937289347}
 --- !u!82 &3615043312937289347
 AudioSource:
@@ -195,7 +197,6 @@ MonoBehaviour:
   - {fileID: 4290816203405159482}
   - {fileID: 6082166882129664967}
   - {fileID: 7418396748728779841}
-  projectileSpeed: 4
   idle: {fileID: 1918561986535893606}
 --- !u!82 &4290816203405159482
 AudioSource:
