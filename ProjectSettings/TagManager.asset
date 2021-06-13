@@ -6,6 +6,11 @@ TagManager:
   tags:
   - RopeSegment
   - Hook
+  - Engine
+  - FuelDropOff
+  - HullBreach
+  - HyperDrive
+  - Thruster
   layers:
   - Default
   - TransparentFX

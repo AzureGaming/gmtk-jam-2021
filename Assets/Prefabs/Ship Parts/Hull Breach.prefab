@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1746327451}
   m_Layer: 0
   m_Name: Hull Breach
-  m_TagString: Untagged
+  m_TagString: HullBreach
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
