@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4939399232144436019}
   - component: {fileID: 4939399232144436016}
   - component: {fileID: 5171257979004749888}
+  - component: {fileID: 3827868904482611777}
   m_Layer: 0
   m_Name: TetherHook
   m_TagString: Untagged
@@ -116,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attached: {fileID: 5171257979004749888}
+  animator: {fileID: 3827868904482611777}
 --- !u!50 &4939399232144436019
 Rigidbody2D:
   serializedVersion: 4
@@ -257,3 +259,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3827868904482611777
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939399232144436014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 574bc12f77063324784027825fa470da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

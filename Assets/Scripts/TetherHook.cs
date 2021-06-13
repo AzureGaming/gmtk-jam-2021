@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TetherHook : MonoBehaviour {
     public AudioSource attached;
+    public Animator animator;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("Hook")) {
@@ -17,12 +18,14 @@ public class TetherHook : MonoBehaviour {
             hook.GetComponentInChildren<Rope>().firstNode.GetComponent<HingeJoint2D>().connectedBody = GetComponent<Rigidbody2D>();
 
             attached.Play();
+            animator.SetBool("Attached", true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.CompareTag("Hook")) {
             attached.Stop();
+            animator.SetBool("Attached", false);
         }
     }
 }
