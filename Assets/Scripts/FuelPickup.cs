@@ -17,6 +17,7 @@ public class FuelPickup : MonoBehaviour {
             comp.Pickup();
             spriteR.sprite = empty;
             hasFuel = false;
+            TaskList.OnPickUpFuel?.Invoke();
         }
     }
 }

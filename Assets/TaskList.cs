@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class TaskList : MonoBehaviour {
     public delegate void UpdateList();
     public static UpdateList OnUpdateList;
+    public delegate void PickUpFuel();
+    public static PickUpFuel OnPickUpFuel;
 
     public GameObject taskItemPrefab;
 
@@ -15,15 +17,23 @@ public class TaskList : MonoBehaviour {
 
     private void OnEnable() {
         OnUpdateList += UpdateStatuses;
+        OnPickUpFuel += UpdateFuelPickupText;
     }
 
     private void OnDisable() {
         OnUpdateList -= UpdateStatuses;
+        OnPickUpFuel -= UpdateFuelPickupText;
     }
 
     private void Start() {
         GetTasks();
         UpdateStatuses();
+    }
+
+    void UpdateFuelPickupText() {
+        if (fuelDropOffText) {
+            fuelDropOffText.GetComponent<TextMeshProUGUI>().color = Color.yellow;
+        }
     }
 
     void UpdateStatuses() {
@@ -39,7 +49,7 @@ public class TaskList : MonoBehaviour {
         if (fuelDropOff != null && fuelDropOffText != null) {
             if (fuelDropOff.isActive) {
                 fuelDropOffText.GetComponent<TextMeshProUGUI>().color = Color.red;
-            } else {
+            } else if (!fuelDropOff.isActive) {
                 fuelDropOffText.GetComponent<TextMeshProUGUI>().color = Color.green;
             }
         }
