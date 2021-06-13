@@ -32,5 +32,9 @@ public class Player : PlayerState {
     void DeathFromOxygen() {
         breathing.Stop();
         choking.Play();
+        PlayerState[] states = GetComponents<PlayerState>();
+        foreach (PlayerState state in states) {
+            state.enabled = false;
+        }
     }
 }

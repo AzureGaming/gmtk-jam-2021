@@ -8,9 +8,9 @@ public class ShootState : PlayerState {
     public Sprite shoot;
     public Sprite shootWithFuel;
     public List<AudioSource> shootSounds;
-    public float projectileSpeed = 4f;
     public PlayerState idle;
 
+    float projectileSpeed = 7f;
     GameObject currentHook;
     bool isHookActive = false;
 
@@ -28,6 +28,10 @@ public class ShootState : PlayerState {
         } else {
             spriteR.sprite = shoot;
         }
+    }
+
+    private void OnDisable() {
+        StopAllCoroutines();
     }
 
     private void Update() {

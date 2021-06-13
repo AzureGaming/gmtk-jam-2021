@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Rope : MonoBehaviour {
     public Vector2 destination;
-    public float speed = 1f;
     public GameObject nodePrefab;
 
+    float speed = 20f;
     float distanceBetweenNodes = 0.5f;
     GameObject player;
     public GameObject firstNode;
@@ -22,7 +22,7 @@ public class Rope : MonoBehaviour {
     }
 
     private void Start() {
-        player = GameObject.Find("Player");
+        player = FindObjectOfType<Player>().gameObject;
         firstNode = gameObject;
         lastNode = gameObject;
 
@@ -76,6 +76,6 @@ public class Rope : MonoBehaviour {
             lr.SetPosition(i, nodes[i].transform.position);
         }
         //account for player
-        lr.SetPosition(nodes.Count, player.transform.position);
+        lr.SetPosition(nodes.Count, player.transform.position);     
     }
 }
