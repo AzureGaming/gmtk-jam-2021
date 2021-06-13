@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     public delegate void PlayerDeath();
     public static PlayerDeath OnPlayerDeath;
 
+    public AudioSource taskComplete;
+
     int objectsToFix;
     int numberOfFixedObjects;
     bool isGameOver = false;
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void IncrementFixed() {
+        taskComplete.Play();
         TaskList.OnUpdateList?.Invoke();
         numberOfFixedObjects++;
     }
