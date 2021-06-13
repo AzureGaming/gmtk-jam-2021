@@ -37,28 +37,28 @@ public class IdleState : PlayerState {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.right;
             rb.AddForce(velocity);
-            jetSound.Play();
+            //jetSound.Play();
         }
 
         if (Input.GetKey(KeyCode.W)) {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.up;
             rb.AddForce(velocity);
-            jetSound.Play();
+            //jetSound.Play();
         }
 
         if (Input.GetKey(KeyCode.S)) {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.down;
             rb.AddForce(velocity);
-            jetSound.Play();
+            //jetSound.Play();
         }
 
         if (Input.GetKey(KeyCode.A)) {
             Vector2 velocity = Vector2.zero;
             velocity = Vector2.left;
             rb.AddForce(velocity);
-            jetSound.Play();
+            //jetSound.Play();
         }
     }
 }
