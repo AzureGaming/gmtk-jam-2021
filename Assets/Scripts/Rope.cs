@@ -7,7 +7,7 @@ public class Rope : MonoBehaviour {
     public GameObject nodePrefab;
 
     float speed = 20f;
-    float distanceBetweenNodes = 0.5f;
+    float distanceBetweenNodes = 0.01f;
     GameObject player;
     public GameObject firstNode;
     GameObject lastNode;
@@ -31,26 +31,30 @@ public class Rope : MonoBehaviour {
 
     private void Update() {
         transform.position = Vector2.MoveTowards(transform.position, destination, speed);
+        float distanceBetween = Vector2.Distance(lastNode.transform.position, player.transform.position);
+        bool isNodeValid = distanceBetween > distanceBetweenNodes;
 
-        if ((Vector2)transform.position != destination && !isAttached) {
+        if (!isAttached && isNodeValid) {
+            CreateNode();
             // Hook is travelling
-            if (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
-                CreateNode();
-            }
-        }
-        if (isAttached) {
+            //if (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
+            //}
+        } else if (isAttached) {
             lastNode.GetComponent<HingeJoint2D>().connectedBody = player.GetComponent<Rigidbody2D>();
+            //if (Input.GetMouseButton(1)) {
+            //    Debug.Log(nodes.Count);
+            //    GameObject secondLastNode = nodes[nodes.Count - 2];
+            //    secondLastNode.GetComponent<HingeJoint2D>().connectedBody = lastNode.GetComponent<HingeJoint2D>().connectedBody;
+            //    GameObject lastNodeRef = lastNode;
+            //    lastNode = secondLastNode;
+            //    Destroy(lastNodeRef);
+            //}
         }
-        //else if (!isDone) {
-        //    isDone = true;
-        //    // if hook gets to position before all nodes are created, create the rest
-        //    while (Vector2.Distance(player.transform.position, lastNode.transform.position) > distanceBetweenNodes) {
-        //        CreateNode();
-        //    }
-        //    lastNode.GetComponent<HingeJoint2D>().connectedBody = player.GetComponent<Rigidbody2D>();
-        //}
-
         RenderLine();
+    }
+
+    public void Retrace() {
+        vertexCount = 0;
     }
 
     void CreateNode() {
@@ -72,10 +76,14 @@ public class Rope : MonoBehaviour {
 
     void RenderLine() {
         lr.positionCount = vertexCount;
-        for (int i = 0; i < nodes.Count; i++) {
-            lr.SetPosition(i, nodes[i].transform.position);
+        if (lr.positionCount > 0) {
+            for (int i = 0; i < nodes.Count; i++) {
+                lr.SetPosition(i, nodes[i].transform.position);
+            }
+            //account for player
+            lr.SetPosition(nodes.Count, player.transform.position);
         }
-        //account for player
-        lr.SetPosition(nodes.Count, player.transform.position);     
     }
+
+
 }

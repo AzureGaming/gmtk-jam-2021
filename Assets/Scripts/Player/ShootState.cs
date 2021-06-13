@@ -52,12 +52,12 @@ public class ShootState : PlayerState {
         yield return new WaitUntil(() => !Input.GetMouseButton(0));
         currentHook.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
-        float distance = Vector2.Distance(currentHook.transform.position, origin.position);
-        while (distance > 0.8f) {
             RetractHook();
-            distance = Vector2.Distance(currentHook.transform.position, origin.position);
-            yield return null;
-        }
+        //float distance = Vector2.Distance(currentHook.transform.position, origin.position);
+        //while (distance > 0.8f) {
+        //    distance = Vector2.Distance(currentHook.transform.position, origin.position);
+        //    yield return null;
+        //}
         Destroy(currentHook);
         isHookActive = false;
     }
@@ -74,8 +74,9 @@ public class ShootState : PlayerState {
     }
 
     void RetractHook() {
-        currentHook.transform.LookAt(origin.position);
-        currentHook.GetComponent<Rigidbody2D>().velocity = currentHook.transform.forward * 10f;
+        //currentHook.transform.LookAt(origin.position);
+        //currentHook.GetComponent<Rigidbody2D>().velocity = currentHook.transform.forward * 10f;
+        currentHook.GetComponentInChildren<Rope>().Retrace();
     }
 
     void PlayShootSound() {
