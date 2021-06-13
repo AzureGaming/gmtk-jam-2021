@@ -3,13 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour {
+    public delegate void TriggerMonster();
+    public static TriggerMonster OnTriggerMonster;
+
     public List<AudioSource> sounds = new List<AudioSource>();
 
     Transform player;
     SpriteRenderer spriteR;
     Collider2D collider2d;
     AudioSource chosenAudio;
-    float speed = 0.01f;
+    float speed = 0.005f;
+
+    private void OnEnable() {
+        OnTriggerMonster += StartRoutine;
+    }
+
+    private void OnDisable() {
+        OnTriggerMonster -= StartRoutine;
+    }
 
     private void Awake() {
         spriteR = GetComponent<SpriteRenderer>();
@@ -19,6 +30,22 @@ public class Monster : MonoBehaviour {
 
 
     void Start() {
+        Color invis = spriteR.color;
+        invis.a = 0f;
+        spriteR.color = invis;
+        collider2d.enabled = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Player")) {
+            Destroy(collision.gameObject);
+        }
+        StopAllCoroutines();
+        StartCoroutine(FadeOut());
+        GameManager.OnPlayerDeath?.Invoke();
+    }
+
+    void StartRoutine() {
         StartCoroutine(AIRoutine());
     }
 
