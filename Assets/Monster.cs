@@ -8,8 +8,8 @@ public class Monster : MonoBehaviour {
     Transform player;
     SpriteRenderer spriteR;
     Collider2D collider2d;
-    bool isAudioPlaying;
     AudioSource chosenAudio;
+    float speed = 0.01f;
 
     private void Awake() {
         spriteR = GetComponent<SpriteRenderer>();
@@ -72,7 +72,7 @@ public class Monster : MonoBehaviour {
 
     void ChasePlayer() {
         Vector2 playerPos = player.position;
-        Vector2 nextPos = Vector2.MoveTowards(transform.position, playerPos, 0.001f);
+        Vector2 nextPos = Vector2.MoveTowards(transform.position, playerPos, speed);
         Vector2 direction = ( nextPos - (Vector2)transform.position ).normalized;
 
         if (direction.x < 0) {
