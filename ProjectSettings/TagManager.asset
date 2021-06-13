@@ -11,6 +11,7 @@ TagManager:
   - HullBreach
   - HyperDrive
   - Thruster
+  - Bound
   layers:
   - Default
   - TransparentFX
