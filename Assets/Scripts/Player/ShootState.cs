@@ -9,11 +9,15 @@ public class ShootState : PlayerState {
     public Sprite shootWithFuel;
     public List<AudioSource> shootSounds;
     public float projectileSpeed = 4f;
+    public PlayerState idle;
 
     GameObject currentHook;
     bool isHookActive = false;
 
     public override PlayerState HandleInput() {
+        if (Input.GetMouseButtonUp(0) && isHookActive) {
+            return idle;
+        }
         OnEnterState();
         return this;
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpaceBackground : MonoBehaviour {
     public GameObject backgroundPrefab;
+
     GameObject nextBackground;
     float speed = 0.003f;
     //float speed = 0.01f;
