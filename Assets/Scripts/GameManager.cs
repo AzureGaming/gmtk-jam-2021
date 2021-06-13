@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviour {
         taskComplete.Play();
         TaskList.OnUpdateList?.Invoke();
         numberOfFixedObjects++;
+        if (numberOfFixedObjects == 1) {
+            Monster.OnTriggerMonster?.Invoke();
+        }
     }
 
     IEnumerator GameLoop() {

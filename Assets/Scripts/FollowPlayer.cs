@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
+    GameObject player;
+
+    private void Awake() {
+        player = FindObjectOfType<Player>().gameObject;
+    }
+
     void Update() {
-        Vector3 playerPos = GameObject.Find("Player").transform.position;
-        Vector3 newPos = transform.position;
+        if (player) {
+            Vector3 playerPos = player.transform.position;
+            Vector3 newPos = transform.position;
 
-        newPos.x = playerPos.x;
-        newPos.y = playerPos.y;
+            newPos.x = playerPos.x;
+            newPos.y = playerPos.y;
 
-        transform.position = newPos;
+            transform.position = newPos;
+
+        }
     }
 }
