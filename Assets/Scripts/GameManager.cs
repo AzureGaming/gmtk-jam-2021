@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public delegate void RepairedShipPart();
@@ -36,8 +37,12 @@ public class GameManager : MonoBehaviour {
             obj.value = 0;
         }
 
+        CanvasManager.OnStartGame?.Invoke();
+        TaskList.OnUpdateList?.Invoke();
+
         StartCoroutine(GameLoop());
     }
+
 
     void SetGameOverFlag() {
         isGameOver = true;
@@ -54,6 +59,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void IncrementFixed() {
+        TaskList.OnUpdateList?.Invoke();
         numberOfFixedObjects++;
     }
 
